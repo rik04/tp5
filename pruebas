@@ -1,0 +1,60 @@
+//Prueba 1 
+@Test
+    public void pruebaAtributosProducto(){
+        Producto p = new Producto();
+        String descripcion  = "Hamburguesa";
+        p.setDescripcion(descripcion);
+        
+        assertEquals(p.getDescripcion(), descripcion);
+    }
+
+
+//Prueba 2
+ @Test
+    public void pruebaIncrementarAgregados(){
+        int cantidad = 0;
+        Producto agregado = new Producto();
+        agregado.setDescripcion("tomate");
+        ArrayList<Producto> agregados = new ArrayList<>();
+        
+        Producto comida = new Producto();
+        comida.setAgregados(agregados);
+        assertEquals(comida.getAgregados().size(), cantidad);
+        
+        cantidad++;
+        agregados.add(agregado);
+        assertEquals(comida.getAgregados().size(), cantidad);
+    }
+
+//Prueba 3
+   @Test
+    public void pruebaTotalInicial(){
+        float esperado=0;
+        Turno turno = new Turno();
+        turno.calcTotVentas();
+        float resultado = turno.getTotVentas();
+        
+        assertEquals(esperado, resultado, 0);
+    }
+
+//Prueba 4
+   @Test
+    public void pruebaInicializarSanguches(){
+        int resultado = Datos.getProductos().size();
+        //TOTAL DE PRODUCTOS
+        int esperado = 32; // Sanguches: 8, Sin alcohol: 8, Con alcohol: 7, Agregados: 9.
+        
+        assertEquals(esperado, resultado);
+    }
+
+//Prueba 5
+  @Test 
+    public void pruebaTipoComprobantePorDefecto(){
+        Datos.inicializar();
+        String resultado = Datos.getTipoComp().getDescripcion();
+        String esperado = "Factura A";
+        
+        assertEquals(esperado, resultado);
+        
+    } 
+
