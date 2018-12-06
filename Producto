@@ -1,0 +1,85 @@
+
+public class Producto {
+    private int codigo;
+    private String descripcion;
+    private float precio;
+    private Rubro rubro;
+    private ArrayList<Producto> agregados = new ArrayList<>();
+    private int stock;
+
+    public Producto() {
+    }
+
+    public Producto(int codigo, String descripcion, float precio, Rubro rubro, int stock) {
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.rubro = rubro;
+        this.stock = stock;
+    }
+
+    public Producto(int codigo, String descripcion, Rubro rubro) {
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+        this.rubro = rubro;
+    }
+
+    public Producto(int codigo, String descripcion, Rubro rubro, int stock) {
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+        this.rubro = rubro;
+        this.stock = stock;
+    }
+    
+    
+    
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public Rubro getRubro() {
+        return rubro;
+    }
+
+    public void setRubro(Rubro rubro) {
+        this.rubro = rubro;
+    }
+
+    public ArrayList<Producto> getAgregados() {
+        return agregados;
+    }
+
+    public void setAgregados(ArrayList<Producto> agregados) {
+        this.agregados = agregados;
+    }
+    
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
+    
+}
