@@ -1,0 +1,64 @@
+public class Turno {
+    private int codigo;
+    private String descripcion;
+    private Fecha fecha;
+    private ArrayList<Pedido> pedidos = new ArrayList<>();
+    private float totVentas;
+
+    public Turno() {
+    }
+
+    public Turno(int codigo, String descripcion, Fecha fecha) {
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Fecha getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Fecha fecha) {
+        this.fecha = fecha;
+    }
+
+    public ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(ArrayList<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public float getTotVentas() {
+        return totVentas;
+    }
+
+    public void setTotVentas(float totVentas) {
+        this.totVentas = totVentas;
+    }
+    
+    public void calcTotVentas(){
+        float tv=0;
+        for(int i=0;i<pedidos.size();i++){
+            tv = tv + pedidos.get(i).getTotal();
+        }
+        totVentas= tv;
+    }
+}
