@@ -1,0 +1,264 @@
+public class Datos {
+        static private Fecha fecha;
+        static private Turno turno;
+        static private Cajero usuario;
+        static private ArrayList<Producto> productos = new ArrayList<>();
+        static private ArrayList<Cajero> cajeros = new ArrayList<>();
+        static private ArrayList<Producto> comidas = new ArrayList<>();
+        static private ArrayList<Producto> bebidas = new ArrayList<>();
+        static private ArrayList<Rubro> rubros = new ArrayList<>();
+        static private ArrayList<LineaPedido> lista = new ArrayList<>();
+        static private Rubro r1;
+        static private Rubro r2;
+        static private Rubro r3;
+        static private Rubro r4;
+        static private int nroLinea;
+        static private int nroPedido;
+        static private Pedido pedido;
+        static private TipoComprobante tipoComp;
+        static private CondicionTributaria condicionTributaria;
+        
+        static private int contS;
+        static private int contSA;
+        static private int contCA;
+
+    public Datos() {
+    }
+    
+    public static void inicializar(){
+        nroLinea=0;
+        nroPedido=1;
+        contS=0;
+        contSA=0;
+        contCA=0;
+        pedido = new Pedido();
+        fecha= new Fecha(5, 9, 2018);
+        turno = new Turno(1, "Noche", fecha);
+        tipoComp = new TipoComprobante(1, "Factura A");
+        Negocio negocio = new Negocio(1, "30-71500222-0", ct);
+        
+        r1 = new Rubro(1, "Sanguches");
+        r2 = new Rubro(2, "Sin Alcohol");
+        r3 = new Rubro(3, "Con Alcohol");
+        r4 = new Rubro(4, "Agregados");
+        rubros.add(r1);
+        rubros.add(r2);
+        rubros.add(r3);
+        rubros.add(r4);
+        
+        Cajero c1 = new Cajero(1, "Ricardo", "Caro", "1234");
+        cajeros.add(c1);
+        
+        Cliente cliente = new Cliente(1, "Juan", "Pérez", condicionTributaria);
+        
+        Producto milanesa = new Producto(1, "Milanesa", 60, r1, 200);
+        Producto lomito = new Producto(2, "Lomito", 60, r1, 200);
+        Producto vegetariano = new Producto(3, "Vegetariano", 60, r1, 200);
+        Producto hamburguesa = new Producto(4, "Hamburguesa", 60, r1, 200);
+        Producto super_milanesa = new Producto(5, "Milanesa Especial", 80, r1,200);
+        Producto super_hamburguesa = new Producto(6, "Milanesa Especial", 80, r1, 200);
+        Producto chori = new Producto(7, "Choripan", 60, r1, 200);
+        Producto milanesa_especial = new Producto(8, "Milanesa Especial", 60, r1, 200);
+        productos.add(milanesa);
+        productos.add(lomito);
+        productos.add(vegetariano);
+        productos.add(hamburguesa);
+        productos.add(super_milanesa);
+        productos.add(super_hamburguesa);
+        productos.add(chori);
+        productos.add(milanesa_especial);
+        
+        Producto coca = new Producto(10, "Coca Cola", 35, r2, 250);
+        Producto coca_l = new Producto(11, "Coca Cola Light", 35, r2, 250);
+        Producto coca_z = new Producto(12, "Coca Cola Zero", 35, r2, 250);
+        Producto fanta = new Producto(13, "Fanta", 35,r2, 250);
+        Producto fanta_z = new Producto(14, "Fanta Zero", 35, r2, 250);
+        Producto sprite = new Producto(15, "Sprite", 35, r2, 250);
+        Producto sprite_z = new Producto(16, "Sprite Zero", 35, r2,250);
+        Producto kin = new Producto(17, "KIN", 25, r2, 250);
+        productos.add(coca);
+        productos.add(coca_l);
+        productos.add(coca_z);
+        productos.add(fanta);
+        productos.add(fanta_z);
+        productos.add(sprite);
+        productos.add(sprite_z);
+        productos.add(kin);
+    
+        Producto brahma = new Producto(20, "Brahma", 40, r3, 150);
+        Producto quilmes = new Producto(21, "Quilmes", 40, r3, 150);
+        Producto salta = new Producto(22, "Salta", 40, r3, 150);
+        Producto imperial = new Producto(23, "Imperial", 40, r3, 150);
+        Producto norte = new Producto(24, "Norte", 40, r3, 150);
+        Producto heineken = new Producto(25, "Heineken", 40, r3, 150);
+        Producto bud = new Producto(26, "Budweiser", 40, r3, 150);
+        productos.add(brahma);
+        productos.add(quilmes);
+        productos.add(salta);
+        productos.add(imperial);
+        productos.add(norte);
+        productos.add(heineken);
+        productos.add(bud);
+        
+        Producto lechuga = new Producto(30, "Lechuga", r4, 400);
+        Producto tomate = new Producto(31, "Tomate", r4, 400);
+        Producto mayonesa = new Producto(32, "Mayonesa", r4);
+        Producto mostaza = new Producto(33, "Mostaza", r4);
+        Producto queso = new Producto(34, "Queso", r4, 400);
+        Producto jamon = new Producto(35, "Jamón", r4, 400);
+        Producto huevo = new Producto(36, "Huevo", r4, 400);
+        Producto cebolla = new Producto(37, "Cebolla", r4, 400);
+        Producto aji = new Producto(38, "Ají", r4, 400);
+        productos.add(lechuga);
+        productos.add(tomate);
+        productos.add(mayonesa);
+        productos.add(mostaza);
+        productos.add(queso);
+        productos.add(jamon);
+        productos.add(huevo);
+        productos.add(cebolla);
+        productos.add(aji);
+      
+        negocio.setCajeros(cajeros);
+    }
+
+    public static ArrayList<Cajero> getCajeros() {
+        return cajeros;
+    }
+
+    public static void setCajeros(ArrayList<Cajero> cajeros) {
+        Datos.cajeros = cajeros;
+    }
+
+    public static ArrayList<Producto> getProductos() {
+        return productos;
+    }
+
+    public static void setProductos(ArrayList<Producto> productos) {
+        Datos.productos = productos;
+    }
+    
+    
+
+    public static ArrayList<Producto> getComidas() {
+        return comidas;
+    }
+
+    public static void setComidas(ArrayList<Producto> comidas) {
+        Datos.comidas = comidas;
+    }
+
+    public static ArrayList<Producto> getBebidas() {
+        return bebidas;
+    }
+
+    public static void setBebidas(ArrayList<Producto> bebidas) {
+        Datos.bebidas = bebidas;
+    }
+
+    public static ArrayList<Rubro> getRubros() {
+        return rubros;
+    }
+
+    public static void setRubros(ArrayList<Rubro> rubros) {
+        Datos.rubros = rubros;
+    }
+
+    public static ArrayList<LineaPedido> getLista() {
+        return lista;
+    }
+
+    public static void setLista(ArrayList<LineaPedido> lista) {
+        Datos.lista = lista;
+    }
+
+    public static int getNroLinea() {
+        return nroLinea;
+    }
+
+    public static void setNroLinea(int nroLinea) {
+        Datos.nroLinea = nroLinea;
+    }
+
+    public static int getNroPedido() {
+        return nroPedido;
+    }
+
+    public static void setNroPedido(int nroPedido) {
+        Datos.nroPedido = nroPedido;
+    }
+
+    public static int getContS() {
+        return contS;
+    }
+
+    public static void setContS(int contS) {
+        Datos.contS = contS;
+    }
+
+    public static int getContSA() {
+        return contSA;
+    }
+
+    public static void setContSA(int contSA) {
+        Datos.contSA = contSA;
+    }
+
+    public static int getContCA() {
+        return contCA;
+    }
+
+    public static void setContCA(int contCA) {
+        Datos.contCA = contCA;
+    }
+    
+    public static Pedido getPedido() {
+        return pedido;
+    }
+
+    public static void setPedido(Pedido pedido) {
+        Datos.pedido = pedido;
+    }
+
+    public static TipoComprobante getTipoComp() {
+        return tipoComp;
+    }
+
+    public static void setTipoComp(TipoComprobante tipoComp) {
+        Datos.tipoComp = tipoComp;
+    }
+
+    public static CondicionTributaria getCondicionTributaria() {
+        return condicionTributaria;
+    }
+
+    public static void setCondicionTributaria(CondicionTributaria condicionTributaria) {
+        Datos.condicionTributaria = condicionTributaria;
+    }
+
+    public static Fecha getFecha() {
+        return fecha;
+    }
+
+    public static void setFecha(Fecha fecha) {
+        Datos.fecha = fecha;
+    }
+
+    public static Turno getTurno() {
+        return turno;
+    }
+
+    public static void setTurno(Turno turno) {
+        Datos.turno = turno;
+    }
+
+    public static Cajero getUsuario() {
+        return usuario;
+    }
+
+    public static void setUsuario(Cajero usuario) {
+        Datos.usuario = usuario;
+    }
+    
+    
+}
